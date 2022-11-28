@@ -5,7 +5,7 @@
 }
 
 html {
-  height: 3000px;
+  height: 3500px;
 }
 
 :root {
@@ -38,10 +38,21 @@ a:hover {
   opacity: 60%;
 }
 
+.projects h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.card-group {
+  display: flex;
+  justify-content: center;
+}
+
 .card {
   max-width: 200px;
   min-width: 200px;
   position: relative;
+  margin: 5px;
 }
 
 .card:hover {
@@ -71,8 +82,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   font-family: cursive;
-  margin-top: 300px;
-  margin-bottom: 600px;
+  padding-top: 300px;
 }
 
 .intro h1 {
@@ -85,6 +95,8 @@ a:hover {
 
 .about {
   position: relative;
+  margin-top: 200px;
+  padding-top: 400px;
 }
 
 .about h1 {
@@ -93,13 +105,28 @@ a:hover {
 }
 
 .projects {
-  margin-top: 500px;
-  margin-bottom: 300px;
+  margin-top: 200px;
+  padding-top: 300px;
 }
 
 .projects h1 {
   font-size: 3rem;
   color: rgb(100, 100, 100);
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  margin-top: 200px;
+  padding-top: 300px;
+  transform: translateX(-110px);
+}
+
+.contact label {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 700px) {
