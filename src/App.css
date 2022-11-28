@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  height: 3000px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+:root {
+  --text-color: rgb(68, 68, 68);
+  --hover-transparent-background-color: rgba(36, 36, 36, 0.6);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.navbar {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:hover {
+  opacity: 60%;
+}
+
+.card {
+  max-width: 200px;
+  min-width: 200px;
+  position: relative;
+}
+
+.card:hover {
+  color: var(--text-color);
+}
+
+.card-body {
+  display: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.card:hover .card-body {
+  display: flex;
+  background-color: var(--hover-transparent-background-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .7rem;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: cursive;
+  margin-top: 300px;
+  margin-bottom: 600px;
+}
+
+.intro h1 {
+  font-size: 4rem;
+}
+
+.intro h2 {
+  font-size: 2.5rem;
+}
+
+.about {
+  position: relative;
+}
+
+.about h1 {
+  font-size: 3rem;
+  color: rgb(100, 100, 100);
+}
+
+.projects {
+  margin-top: 500px;
+  margin-bottom: 300px;
+}
+
+.projects h1 {
+  font-size: 3rem;
+  color: rgb(100, 100, 100);
+}
+
+@media screen and (max-width: 700px) {
+  .intro h1 {
+    font-size: 3rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .intro h2 {
+    font-size: 2rem;
   }
 }
