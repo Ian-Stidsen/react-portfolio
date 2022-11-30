@@ -5,7 +5,7 @@
 }
 
 html {
-  height: 3500px;
+  height: 3000px;
 }
 
 :root {
@@ -114,14 +114,25 @@ a:hover {
   color: rgb(100, 100, 100);
 }
 
+.projects .row {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form {
+  position: relative;
+}
+
 .contact {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  margin-top: 200px;
+  position: absolute;
+  max-width: 500px;
+  min-width: 500px;
+  margin-top: 0px;
   padding-top: 300px;
-  transform: translateX(-110px);
+  right: 50%;
+  transform: translateX(50%);
 }
 
 .contact label {
@@ -136,5 +147,16 @@ a:hover {
 
   .intro h2 {
     font-size: 2rem;
+  }
+
+  .contact {
+    max-width: 80vw;
+    min-width: 80vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .projects .card {
+    max-width: 300px;
   }
 }
