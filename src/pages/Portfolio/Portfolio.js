@@ -22,7 +22,7 @@ function Portfolio() {
       case 'Contact':
         contactRef.current.scrollIntoView();
         break;
-      case 'Portfolio':
+      case 'Projects':
         projectsRef.current.scrollIntoView();
         break;
       default:
@@ -47,7 +47,7 @@ function Portfolio() {
                 <a className="nav-link" onClick={scrollLink}>About</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={scrollLink}>Portfolio</a>
+                <a className="nav-link" onClick={scrollLink}>Projects</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" onClick={scrollLink}>Contact</a>
