@@ -2,7 +2,7 @@ import React from'react';
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
-import emailjsAPI from '../../../data/emailjsAPI';
+import emailjsAPI from '../data/emailjsAPI';
 
 function Contact () {
   const form = useRef();

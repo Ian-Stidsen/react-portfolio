@@ -1,5 +1,8 @@
 
-import LLRegnskab from '../img/ll-regnskab.jpg';
+import LLRegnskab from '../assets/ll-regnskab.jpg';
+import Converter from '../assets/converter.jpg';
+import Speedtype from '../assets/speedtype.jpg';
+
 
 function Projects() {
   return (
@@ -19,7 +22,7 @@ function Projects() {
 
         <a className='card' href='/currency-calculator'>
           <h6 className='card-header'>Currency Calculator</h6>
-          <img className='card-img' src={LLRegnskab} alt='LL Regnskab'></img>
+          <img className='card-img' src={Converter} alt='LL Regnskab'></img>
           <div className='card-body card-img-overlay'>
             <p className='card-text'>
               I made this project using React, bootstrap and a currency API.
@@ -30,7 +33,7 @@ function Projects() {
 
         <a className='card' href='/speedtype'>
           <h6 className='card-header'>Speedtype Game</h6>
-          <img className='card-img' src={LLRegnskab} alt='LL Regnskab'></img>
+          <img className='card-img' src={Speedtype} alt='LL Regnskab'></img>
           <div className='card-body card-img-overlay'>
             <p className='card-text'>
               I made this project using vanilla javascript.
