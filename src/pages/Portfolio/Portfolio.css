@@ -18,16 +18,33 @@ a {
   color: var(--text-color);
 }
 
-a:hover {
+.nav-link {
+  display: flex;
+  background: none;
+  border: none;
+  justify-content: right;
+}
+
+.nav-link:hover {
   cursor: pointer;
 }
 
 .navbar {
   position: fixed;
-  width: 100vw;
+  width: 100vw !important;
   top: 0;
   left: 0;
   z-index: 100;
+}
+
+#navLink {
+  justify-self: right;
+}
+
+.navbar-collapse {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .navbar-toggler {

@@ -29,6 +29,7 @@ function Portfolio() {
         break;
     }
   }
+
   return (
     <div className="App">
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -39,18 +40,35 @@ function Portfolio() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="nav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link" onClick={scrollLink}>Intro</a>
+            <ul className="navbar-nav" id='navScroll'>
+
+              <li className="nav-item scroll">
+                <button className="nav-link" onClick={scrollLink}>Intro</button>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" onClick={scrollLink}>About</a>
+              <li className="nav-item scroll">
+                <button className="nav-link" onClick={scrollLink}>About</button>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" onClick={scrollLink}>Projects</a>
+              <li className="nav-item scroll">
+                <button className="nav-link" onClick={scrollLink}>Projects</button>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" onClick={scrollLink}>Contact</a>
+              <li className="nav-item scroll">
+                <button className="nav-link" onClick={scrollLink}>Contact</button>
+              </li>
+            </ul>
+
+            <ul className="navbar-nav" id='navLink'>
+              <li className="nav-item link">
+                <a className="nav-link" href='https://github.com/Ian-Stidsen' target='_blank' rel='noopener noreferrer'>
+                  Github
+                </a>
+              </li>
+              <li className="nav-item link">
+                <a className="nav-link" href='https://www.linkedin.com/in/ian-lund-stidsen-02aa51248/' target='_blank' rel='noopener noreferrer'>
+                  LinkedIn
+                </a>
+              </li>
+              <li className="nav-item link">
+                <a className="nav-link" href='mailto:ianstidsen@gmail.com'>Email</a>
               </li>
             </ul>
           </div>
