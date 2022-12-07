@@ -67,7 +67,7 @@ function Portfolio() {
           <h1 className="about-title">ABOUT ME</h1>
           <p className="about-text">
             My name is Ian Lund Stidsen, i'm a self-taught Front-end developer. 
-            I'm passionate about learning new things about in programming and love to make websites/apps.
+            I'm passionate about learning new things about programming and love to make websites/apps.
           </p>
         </section>
 
