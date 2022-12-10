@@ -1,7 +1,10 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import LLRegnskab from '../assets/ll-regnskab.jpg';
 import Converter from '../assets/converter.jpg';
 import Speedtype from '../assets/speedtype.jpg';
+import Todo from '../assets/todo-list.jpg';
 
 
 function Projects() {
@@ -9,18 +12,19 @@ function Projects() {
     <div>
       <h1>My projects</h1>
       <div className='row'>
-        <a className='card' href='https://www.llregnskab.gl'>
+        <a className='card' href='https://www.llregnskab.gl' target='_blank' rel='noreferrer'>
           <h6 className='card-header'>LL Regnskab ApS</h6>
           <img className='card-img' src={LLRegnskab} alt='LL Regnskab'></img>
           <div className='card-body card-img-overlay'>
             <p className='card-text'>
-              I made this website for my mothers company, using jQuery.
+              I made this website for my mothers company, using jQuery. 
+              But then later moved it to react.
             </p>
             <button className='btn btn-dark'>Click to visit</button>
           </div>
         </a>
 
-        <a className='card' href='/currency-calculator'>
+        <Link className='card' to='/converter' target='_blank' rel='noreferrer'>
           <h6 className='card-header'>Currency Calculator</h6>
           <img className='card-img' src={Converter} alt='LL Regnskab'></img>
           <div className='card-body card-img-overlay'>
@@ -29,29 +33,29 @@ function Projects() {
             </p>
             <button className='btn btn-dark'>Click to visit</button>
           </div>
-        </a>
+        </Link>
 
-        <a className='card' href='/speedtype'>
+        <Link className='card' to='/speedtype' target='_blank' rel='noreferrer'>
           <h6 className='card-header'>Speedtype Game</h6>
           <img className='card-img' src={Speedtype} alt='LL Regnskab'></img>
           <div className='card-body card-img-overlay'>
             <p className='card-text'>
-              I made this project using vanilla javascript.
+              This project was one of my first projects made it using vanilla Javascript.
             </p>
             <button className='btn btn-dark'>Click to visit</button>
           </div>
-        </a>
+        </Link>
 
-        <a className='card' href='/todo-list'>
+        <Link className='card' to='/todo' target='_blank' rel='noreferrer'>
           <h6 className='card-header'>TodoList</h6>
-          <img className='card-img' src={LLRegnskab} alt='LL Regnskab'></img>
+          <img className='card-img' src={Todo} alt='LL Regnskab'></img>
           <div className='card-body card-img-overlay'>
             <p className='card-text'>
-              This project was my first React and bootstrap project.
+              I made this mini project using React to learn more about useState hook.
             </p>
             <button className='btn btn-dark'>Click to visit</button>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );
