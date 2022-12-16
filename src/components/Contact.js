@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 
 import emailjsAPI from '../data/emailjsAPI';
 
-function Contact () {
+export function Contact () {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
@@ -94,5 +94,3 @@ function Contact () {
     </div>
   );
 };
-
-export default Contact;

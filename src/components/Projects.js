@@ -7,7 +7,7 @@ import Speedtype from '../assets/speedtype.jpg';
 import Todo from '../assets/todo-list.jpg';
 
 
-function Projects() {
+export function Projects() {
   return (
     <div>
       <h1>My projects</h1>
@@ -24,7 +24,7 @@ function Projects() {
           </div>
         </a>
 
-        <Link className='card' to='/converter' target='_blank' rel='noreferrer'>
+        <Link className='card' to='/converter/currency' target='_blank' rel='noreferrer'>
           <h6 className='card-header'>Currency Calculator</h6>
           <img className='card-img' src={Converter} alt='LL Regnskab'></img>
           <div className='card-body card-img-overlay'>
@@ -60,5 +60,3 @@ function Projects() {
     </div>
   );
 };
-
-export default Projects;

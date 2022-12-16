@@ -11,6 +11,7 @@
 # production
 /build
 /src/data
+/src/pages/Projects/currency-converter/data
 
 # misc
 .DS_Store

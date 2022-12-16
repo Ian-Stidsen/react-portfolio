@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, Suspense } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 import './navbar.css';
@@ -85,10 +85,13 @@ function Navbar() {
         <button style={FaTimesStyle} id='FaTimes' onClick={() => {setNavbarState(!navbarState)}}><FaTimes/></button>
         <h1 style={navTitleStyle}>Currency converter</h1>
         <ul style={navbarLinksStyle} className='navbar-links' onClick={() => {setNavbarState(!navbarState)}}>
-          <li><Link style={linkStyle} to='/converter'>Currency</Link></li>
+          <li><Link style={linkStyle} to='/converter/currency'>Currency</Link></li>
           <li><Link style={linkStyle} to='/converter/rates'>Rates</Link></li>
         </ul>
       </nav>
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </header>
   );
 }
