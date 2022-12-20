@@ -1,11 +1,11 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy } from 'react';
 import { 
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
 
-import Portfolio from './pages/Portfolio/Portfolio';
+import Portfolio from './portfolio/Portfolio';
 
 const ConverterNavbar = lazy(() => import('./components').then(module => {
   return { default: module.Navbar };

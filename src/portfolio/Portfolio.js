@@ -2,7 +2,7 @@ import React from 'react';
 import { useRef } from 'react'
 
 import './Portfolio.css';
-import { Projects, Contact } from '../../components';
+import { Projects, Contact } from '../components';
 
 function Portfolio() {
   const introRef = useRef(),
