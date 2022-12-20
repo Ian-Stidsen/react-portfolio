@@ -4,10 +4,9 @@ import React, {
 } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-import API_KEYS from '../data/API.json'
-import Navbar from '../components/Navbar';
+import API_KEYS from '../../data/currencyAPI.json';
 
-function Rates() {
+export function Rates() {
 
   let conversionRates;
 
@@ -62,7 +61,6 @@ function Rates() {
 
   return (
     <>
-    <Navbar />
       <BootstrapTable data={rates} tableStyle={{
         tableLayout: 'auto',
         width: '500px',
@@ -73,5 +71,3 @@ function Rates() {
     </>
   )
 };
-
-export default Rates;

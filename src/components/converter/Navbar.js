@@ -4,7 +4,7 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 
 import './navbar.css';
 
-function Navbar() {
+export function Navbar() {
 
   const [navbarState, setNavbarState] = useState(false);
 
@@ -95,5 +95,3 @@ function Navbar() {
     </header>
   );
 }
-
-export default Navbar;

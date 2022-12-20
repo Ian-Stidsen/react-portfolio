@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import LLRegnskab from '../assets/ll-regnskab.jpg';
-import Converter from '../assets/converter.jpg';
-import Speedtype from '../assets/speedtype.jpg';
-import Todo from '../assets/todo-list.jpg';
+import LLRegnskab from '../../assets/ll-regnskab.jpg';
+import Converter from '../../assets/converter.jpg';
+import Speedtype from '../../assets/speedtype.jpg';
+import Todo from '../../assets/todo-list.jpg';
 
 
 export function Projects() {

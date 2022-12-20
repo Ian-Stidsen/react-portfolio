@@ -3,17 +3,14 @@ import React, {
   useState,
   useMemo
 } from 'react';
-import '../stylesheets/converter.css';
+import './converter.css';
 
-import API_KEYS from '../data/API.json';
-import Navbar from '../components/Navbar';
+import API_KEYS from '../../data/currencyAPI.json';
 
 //const CURRENCY_API =`https://api.apilayer.com/currency_data/convert?to=${currencyTo.value}&from=${currencyFrom.value}&amount=${inputFrom.value}`;
 
 
-function Converter() {
-
-  function log(log) {console.log(log)};
+export function Converter() {
 
   // Runs the API once when the page is loaded.
   useEffect(() => {
@@ -104,7 +101,6 @@ function Converter() {
 
   return (
     <>
-    <Navbar />
     <div className="container" style={containerStyle}>
       <h1 className='converter-title'>Currency Converter</h1>
       <form>
@@ -136,5 +132,3 @@ function Converter() {
     </>
   );
 }
-
-export default Converter;
