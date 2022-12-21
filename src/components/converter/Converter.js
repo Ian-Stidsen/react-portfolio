@@ -1,9 +1,11 @@
 import React, {
   useEffect,
   useState,
-  useMemo
+  useRef
 } from 'react';
 import './converter.css';
+
+import { apiResponse } from './apiResponse';
 
 import API_KEYS from '../../data/currencyAPI.json';
 
@@ -13,82 +15,47 @@ import API_KEYS from '../../data/currencyAPI.json';
 export function Converter() {
 
   // Runs the API once when the page is loaded.
+  const [rates, setRates] = useState({USD: 1})
+  const [currencyCodes, setCurrencyCodes] = useState([<option key={'USD'} value='USD'>USD</option>]);
+
+  const currencyFrom = useRef('USD');
+  const currencyTo = useRef('USD');
+
+  const inputFrom = useRef(0);
+  const inputTo = useRef(0);
+
   useEffect(() => {
+    async function getConversionRates() {
+      const promise = await apiResponse();
+  
+      Object.entries(promise).map(entry => {
+        const currency = entry[0].slice(3, entry[0].length);
+        
+        setRates((prevState) => ({
+          ...prevState,
+          [currency]: entry[1]
+        }));
+        
+        setCurrencyCodes((prevState) => ([
+          ...prevState,
+          <option key={currency} value={currency}>{currency}</option>
+        ]));
+        
+      });
+    };
     getConversionRates();
   }, [])
 
-  const [rates, setRates] = useState({USD: 1})
-  const [currencyCodes, setCurrencyCodes] = useState([<option value='USD'>USD</option>]);
 
-  const [currencyFromValue, setCurrencyFromValue] = useState('USD');
-  const [currencyToValue, setCurrencyToValue] = useState('USD');
+  const convert = () => {
+    const currencyFromValue = currencyFrom.current.value;
+    const currencyToValue = currencyTo.current.value;
+    const inputFromValue = inputFrom.current.value;
 
-  const [inputFromValue, setInputFromValue] = useState(0);
-  const [inputToValue, setInputToValue] = useState(0);
+    const rate = rates[currencyToValue] / rates[currencyFromValue];
+    const result = inputFromValue * rate;
 
-  function getConversionRates () {
-    const CURRENCY_API = 'https://api.apilayer.com/currency_data/live?base=USD&symbols=EUR,GBP';
-
-    let myHeaders = new Headers();
-    myHeaders.append("apikey", API_KEYS.Converter_APIKEY);
-
-    const requestOptions = {
-    method: 'GET',
-    redirect: 'follow',
-    headers: myHeaders
-    };
-
-    fetch(CURRENCY_API, requestOptions)
-      .then(response => response.json())
-      .then(data => data.quotes)
-      .then(result => {
-        Object.entries(result).map(entry => {
-          const currency = entry[0][3] + entry[0][4] + entry[0][5];
-          
-          setRates((prevState) => ({
-            ...prevState,
-            [currency]: entry[1]
-          }));
-
-          setCurrencyCodes((prevState) => ([
-            ...prevState,
-            <option value={currency}>{currency}</option>
-          ]));
-
-        });
-      });
-  };
-
-  const convert = (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-
-    switch(id) {
-      case 'currencyFrom':
-        setCurrencyFromValue(value);
-        calculate(value, currencyToValue, inputFromValue);
-        break;
-
-      case 'currencyTo':
-        setCurrencyToValue(value);
-        calculate(currencyFromValue, value, inputFromValue);
-        break;
-
-      case 'inputFrom':
-        setInputFromValue(value);
-        calculate(currencyFromValue, currencyToValue, value);
-        break;
-
-      default:
-        calculate(currencyFromValue, currencyToValue, inputFromValue);
-        break;
-    }
-  };
-  
-  const calculate = (currencyFrom, currencyTo, inputFrom) => {
-    const rate = rates[currencyTo] / rates[currencyFrom];
-    const result = inputFrom * rate;
-    setInputToValue(result);
+    inputTo.current.value = result;
   };
 
   const containerStyle = {
@@ -107,23 +74,23 @@ export function Converter() {
 
         <div className="input-group">
           <div className="input-group-text">
-            <select className="form-select" onChange={convert} name="currency" id="currencyFrom">
+            <select ref={currencyFrom} className="form-select" onChange={convert} name="currency" id="currencyFrom">
               {currencyCodes}
             </select>
           </div>
           <div className='form-floating'>
-            <input className="form-control" onChange={convert} type="number" id="inputFrom" placeholder="" value={inputFromValue}></input>
-            <label htmlFor="convertFrom" className='form-label'>Convert from {currencyFromValue}</label>
+            <input ref={inputFrom} className="form-control" onChange={convert} type="number" id="inputFrom" placeholder=""></input>
+            <label htmlFor="convertFrom" className='form-label'>Convert from {currencyFrom.value}</label>
           </div>
 
           <div className="input-group-text">
-            <select className="form-select" onChange={convert} name="currency" id="currencyTo">
+            <select ref={currencyTo} className="form-select" onChange={convert} name="currency" id="currencyTo">
               {currencyCodes}
             </select>
           </div>
           <div className='form-floating'>
-            <input value={inputToValue} readOnly className="form-control" type="number" id="inputTo" placeholder=""></input>
-            <label htmlFor="convertTo" className='form-label'>Convert to {currencyToValue}</label>
+            <input ref={inputTo} readOnly className="form-control" type="number" id="inputTo" placeholder=""></input>
+            <label htmlFor="convertTo" className='form-label'>Convert to {currencyTo.value}</label>
           </div>
         </div>
 
