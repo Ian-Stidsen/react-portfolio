@@ -9,6 +9,6 @@ export * from './converter/Rates';
 
 
 // TodoList
-
+export * from './todolist/Todo';
 
 // Speedtype

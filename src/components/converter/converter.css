@@ -4,9 +4,20 @@
   padding: 0;
 }
 
+:root {
+  --converter-border: 1px solid rgb(214, 214, 214);
+}
+
 .form-select {
   background-color: inherit;
   border: none;
   width: inherit;
   height: inherit;
+}
+
+#swapButton {
+  width: 50px;
+  border: none;
+  border-top: var(--converter-border);
+  border-bottom: var(--converter-border);
 }

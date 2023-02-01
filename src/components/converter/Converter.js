@@ -5,12 +5,9 @@ import React, {
 } from 'react';
 import './converter.css';
 
+import { Helmet } from 'react-helmet';
+
 import { apiResponse } from './apiResponse';
-
-import API_KEYS from '../../data/currencyAPI.json';
-
-//const CURRENCY_API =`https://api.apilayer.com/currency_data/convert?to=${currencyTo.value}&from=${currencyFrom.value}&amount=${inputFrom.value}`;
-
 
 export function Converter() {
 
@@ -58,6 +55,14 @@ export function Converter() {
     inputTo.current.value = result;
   };
 
+  const swapCurrencies = () => {
+    const tempCurrency = currencyFrom.current.value; 
+    currencyFrom.current.value =  currencyTo.current.value;
+    currencyTo.current.value = tempCurrency;
+
+    convert();
+  }
+
   const containerStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -68,34 +73,45 @@ export function Converter() {
 
   return (
     <>
-    <div className="container" style={containerStyle}>
-      <h1 className='converter-title'>Currency Converter</h1>
-      <form>
+      <Helmet><title>Converter | Currency</title></Helmet>
+      <div className="container" style={containerStyle}>
+        <h1 className='converter-title'>Currency Converter</h1>
+        <form>
 
-        <div className="input-group">
-          <div className="input-group-text">
-            <select ref={currencyFrom} className="form-select" onChange={convert} name="currency" id="currencyFrom">
-              {currencyCodes}
-            </select>
-          </div>
-          <div className='form-floating'>
-            <input ref={inputFrom} className="form-control" onChange={convert} type="number" id="inputFrom" placeholder=""></input>
-            <label htmlFor="convertFrom" className='form-label'>Convert from {currencyFrom.value}</label>
+          <div className="input-group">
+            <div className="input-group-text">
+              <select ref={currencyFrom} className="form-select" onChange={convert} name="currency" id="currencyFrom">
+                {currencyCodes}
+              </select>
+            </div>
+            <div className='form-floating'>
+              <input ref={inputFrom} className="form-control" onChange={convert} type="number" id="inputFrom" placeholder=""></input>
+              <label htmlFor="convertFrom" className='form-label'>Convert from {currencyFrom.value}</label>
+            </div>
+
+            <button type='button' onClick={swapCurrencies} id='swapButton' className='form-button'>
+              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-switch-horizontal" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <polyline points="16 3 20 7 16 11"></polyline>
+                <line x1="10" y1="7" x2="20" y2="7"></line>
+                <polyline points="8 13 4 17 8 21"></polyline>
+                <line x1="4" y1="17" x2="13" y2="17"></line>
+              </svg>
+            </button>
+
+            <div className='form-floating'>
+              <input ref={inputTo} readOnly className="form-control" type="number" id="inputTo" placeholder=""></input>
+              <label htmlFor="convertTo" className='form-label'>Convert to {currencyTo.value}</label>
+            </div>
+            <div className="input-group-text">
+              <select ref={currencyTo} className="form-select" onChange={convert} name="currency" id="currencyTo">
+                {currencyCodes}
+              </select>
+            </div>
           </div>
 
-          <div className="input-group-text">
-            <select ref={currencyTo} className="form-select" onChange={convert} name="currency" id="currencyTo">
-              {currencyCodes}
-            </select>
-          </div>
-          <div className='form-floating'>
-            <input ref={inputTo} readOnly className="form-control" type="number" id="inputTo" placeholder=""></input>
-            <label htmlFor="convertTo" className='form-label'>Convert to {currencyTo.value}</label>
-          </div>
-        </div>
-
-      </form>
-    </div>
+        </form>
+      </div>
     </>
   );
 }

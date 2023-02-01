@@ -1,0 +1,29 @@
+.card {
+  padding: 0;
+}
+
+.card-links {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  align-items: center;
+  width: 100%;
+  bottom: 50px;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 40px;
+  color: #ffffff;
+  background-color: #383130;
+  border-radius: 10px;
+  border: 1px solid rgb(128, 128, 128);
+}
+
+.project-link:hover {
+  background-color: #454140;
+  color: #ffffff;
+}

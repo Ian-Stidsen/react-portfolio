@@ -18,6 +18,10 @@ const ConverterRates = lazy(() => import('./components').then(module => {
   return { default: module.Rates };
 }));
 
+const Todolist = lazy(() => import('./components').then(module => {
+  return { default: module.Todo };
+}));
+
 function App() {
   return (
     <Router>
@@ -28,6 +32,8 @@ function App() {
           <Route path="/converter/currency" element={<Converter />} />
           <Route path="/converter/rates" element={<ConverterRates />} />
         </Route>
+
+        <Route path='/todolist' element={<Todolist />} />
 
       </Routes>
     </Router>

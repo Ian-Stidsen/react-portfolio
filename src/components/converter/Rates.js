@@ -4,6 +4,8 @@ import React, {
 } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
+import { Helmet } from 'react-helmet';
+
 import { apiResponse } from './apiResponse';
 
 export function Rates() {
@@ -36,6 +38,7 @@ export function Rates() {
 
   return (
     <>
+      <Helmet><title>Converter | Rates</title></Helmet>
       <BootstrapTable data={rates} tableStyle={{
         tableLayout: 'auto',
         width: '500px',

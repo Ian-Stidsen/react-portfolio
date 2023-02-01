@@ -5,12 +5,10 @@ import './Portfolio.css';
 import { Projects, Contact } from '../components';
 
 function Portfolio() {
-  const introRef = useRef(),
-      aboutRef = useRef(),
-      contactRef = useRef(),
-      projectsRef = useRef();
+  const introRef = useRef(), aboutRef = useRef(),
+    contactRef = useRef(), projectsRef = useRef();
 
-  function scrollLink(link) {
+  const scrollLink = (link) => {
     switch(link.target.innerText) {
       case 'Intro':
         introRef.current.scrollIntoView();
@@ -27,7 +25,7 @@ function Portfolio() {
       default:
         break;
     }
-  }
+  };
 
   return (
     <div className="App">

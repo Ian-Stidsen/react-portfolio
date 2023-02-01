@@ -4,13 +4,13 @@
   padding: 0;
 }
 
-/* :root {
+:root {
   --theme-color: #1434A4;
   --navbar-text-color: rgb(170, 170, 170);
   --navbar-hover-text-color: white;
 }
 
-.navbar {
+/* .navbar {
   display: flex;
   position: fixed;
   width: 150px;

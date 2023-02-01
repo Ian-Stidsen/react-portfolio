@@ -31,7 +31,7 @@ export function Navbar() {
     fontWeight: 'bold',
     position: 'fixed',
     top: '20px',
-    left: '350px',
+    left: '250px',
   }
   
   const FaBarsStyle = {
